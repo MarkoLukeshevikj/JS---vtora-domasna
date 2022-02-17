@@ -35,8 +35,15 @@ fibonaci(100);
 
 let niza1 = [1, 2, 3];
 let niza2 = [4, 5, 6];
-let niza = [(niza1[0] * niza2[0]), (niza1[1] * niza2[1]), (niza1[2] * niza2[2])];
-console.log(niza);
+
+function soberi(niza1, niza2) {
+    let rezultat = 0;
+        for (let i = 0; i < niza2.length; i++) {
+        rezultat += niza1[i] * niza2[i];
+    }
+    return rezultat;
+}
+console.log(soberi(niza1, niza2))
 
 
 
@@ -57,3 +64,55 @@ function findIndex(niza, index) {
 }
 console.log(findIndex(['i', 'i', 'i','i', 'i', 'i','i', 'i', 'i','i', 'i', 'i','i', 'i', 'i','i', 'i', 
 'i','i', 'i', 'i','i', 'i', 'i','!','i', 'i', 'i','i', 'i', 'i','i', 'i', 'i','i', 'i', 'i','i', 'i', 'i'], '!'));
+
+/* 5. Na dadena niza [ 1, 2, 3, 5] da i se dodade brojot 4 na pozicija 3 i da se kreira nova niza koja bi izgledala [1 , 2, 3, 4, 5] (edited)  */
+  
+  let aray = [ 1, 2, 3, 5];
+  
+  function dodadiBroj(niza) {
+    let aray2 = [];
+    for (let i = 0; i < niza.length; i++) {
+        if (i === 3) {
+            aray2.push(4);
+            aray2.push(niza[i]);
+        }
+        else aray2.push(niza[i]);
+    }
+   return aray2;
+  }
+  console.log(dodadiBroj(aray))
+
+/* 6. Na dadena niza [ a , b, v, v ,g] da se izvadi elementot v koj e duplikat od nizata i da se dobie niza [ a ,b  , v ,g ] .*/
+
+function trgniDuplikat(niza) {
+    let nizaBezDuplikati = [];
+    for (let i = 0; i < niza.length; i++) {
+        let duplikat = 0;
+        for (let j = i + 1; j < niza.length; j++) {
+          if (niza[i] === niza[j]) duplikat++
+        }
+        if (duplikat === 0) nizaBezDuplikati.push(niza[i]);
+    }
+    return nizaBezDuplikati;
+}
+
+console.log(trgniDuplikat(['a ', 'b', 'v', 'v' ,'g']));
+
+
+/* 7. Na dadena niza [ 1 , 3 , 3 ,4 ,5 ,6 ,6 ] da se proveri kolku duplikati ima. ( na primerot ima 2 duplikati 3 i 6 ) */
+
+  function kolkuDuplikati(niza) {
+      let duplikati = 0;
+      for (let i = 0; i < niza.length; i++) {
+          let duplikat = 0;
+          for (let j = i + 1; j < niza.length; j++) {
+            if (niza[i] === niza[j]) duplikat++
+          }
+          if (duplikat > 0) duplikati++
+      }
+      return duplikati;
+  }
+
+  console.log(kolkuDuplikati([1 , 3 , 3 ,4 ,5 ,6 ,6,]));
+
+
